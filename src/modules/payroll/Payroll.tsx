@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { payrollRecords, employees } from '@/data/dummyData';
 import * as Icons from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -23,7 +23,6 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogFooter,
   DialogDescription,
 } from '@/components/ui/dialog';
 
@@ -704,14 +703,16 @@ export const Payroll = () => {
 // Add Popover from UI components
 const Popover = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const kids = React.Children.toArray(children);
+
   return (
     <div className="relative inline-block text-left">
-      <div onClick={() => setIsOpen(!isOpen)}>{children[0] as any}</div>
+      <div onClick={() => setIsOpen(!isOpen)}>{kids[0]}</div>
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
           <div className="absolute right-0 z-50 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            {children[1] as any}
+            {kids[1]}
           </div>
         </>
       )}
@@ -719,7 +720,7 @@ const Popover = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const PopoverTrigger = ({ children, asChild }: { children: React.ReactNode; asChild?: boolean }) => {
+const PopoverTrigger = ({ children }: { children: React.ReactNode; asChild?: boolean }) => {
   return <>{children}</>;
 };
 
