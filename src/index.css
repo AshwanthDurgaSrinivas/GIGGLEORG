@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* GIGGLEORG - Pro Light Theme */
+    --background: 210 40% 98%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --primary: 245 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 71% 4%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 245 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 245 80% 60%;
+
+    --radius: 1rem;
+
+    /* Sidebar - Pro Light */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 224 71% 4%;
+    --sidebar-primary: 245 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 245 80% 60%;
+    --sidebar-border: 220 13% 91%;
+
+    /* Premium Surfaces */
+    --surface-1: 0 0% 100%;
+    --surface-2: 220 14% 96%;
+    --surface-3: 220 13% 91%;
+  }
+
+  .dark {
+    /* GIGGLEORG - Pro Dark Theme (Deep Navy/Slate) */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 245 80% 65%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 224 71% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 224 71% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 245 80% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 71% 14%;
+    --input: 224 71% 14%;
+    --ring: 245 80% 65%;
+
+    /* Sidebar - Pro Dark */
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 245 80% 65%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 224 71% 12%;
+    --sidebar-accent-foreground: 245 80% 65%;
+    --sidebar-border: 224 71% 14%;
+
+    /* Premium Surfaces Dark */
+    --surface-1: 224 71% 7%;
+    --surface-2: 224 71% 10%;
+    --surface-3: 224 71% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-primary;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-extrabold;
+  }
+}
+
+@layer components {
+
+  /* Premium Dashboard Cards */
+  .pro-card {
+    @apply bg-card rounded-2xl border border-border/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20;
+  }
+
+  /* Sophisticated Glass */
+  .pro-glass {
+    @apply bg-background/60 backdrop-blur-xl border-b border-border;
+  }
+
+  /* Navigation Item */
+  .nav-item-active {
+    @apply bg-primary/10 text-primary font-bold shadow-[inset_0_0_0_1px_rgba(var(--primary), 0.1)];
+  }
+
+  /* Animated Primary Button */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground rounded-xl px-6 py-2.5 font-bold transition-all hover:opacity-90 active:scale-95 shadow-lg shadow-primary/20;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    @apply relative overflow-visible;
+  }
+
+  .glow-primary::after {
+    @apply absolute inset-0 rounded-[inherit] opacity-0 transition-opacity pointer-events-none;
+    content: '';
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+
+  .glow-primary:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Custom Scrollbar - Minimalist */
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/10 rounded-full hover:bg-muted-foreground/20 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.5);
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)), transparent 1px);
+    background-size: 32px 32px;
+  }
+}
