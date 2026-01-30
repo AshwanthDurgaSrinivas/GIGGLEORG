@@ -6,7 +6,6 @@ import { useAuthStore } from '@/store/authStore';
 import { navItems } from '@/data/dummyData';
 import * as Icons from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 

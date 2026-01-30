@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useThemeStore } from '@/store/themeStore';
 import { useUIStore } from '@/store/uiStore';
 import { notifications } from '@/data/dummyData';
@@ -20,7 +20,7 @@ import {
 
 export const Navbar = () => {
   const { mode, setMode } = useThemeStore();
-  const { sidebarOpen, setSidebarOpen, searchOpen, toggleSearch, unreadCount, markAllNotificationsRead, setActiveModule } = useUIStore();
+  const { sidebarOpen, setSidebarOpen, unreadCount, markAllNotificationsRead } = useUIStore();
   const { user } = useAuthStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
